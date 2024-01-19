@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300&display=swap');
+
+*{
+   
+    padding: 0%;
+    list-style: none;
+    outline: none;
+    transition: .15s all ease;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: var(--primary_text);
+}
+body{
+    background-color: rgb(86, 135, 31);
+}
+label{
+  
+    font-family: var(--primary_text);
+}
+:root{
+    --primary_text:'Poppins', sans-serif;
+    --heading_text: 'Abril Fatface', cursive;
+}
+.navbar2 ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    padding: 0vw 10vw;
+    height: 10vh;
+    background-color:whitesmoke;
+    box-shadow: 1px 1px 3px grey;
+}
+#profilepic{
+    height: 6vh;
+    width: 3vw;
+    margin: 0px 2vw;
+
+    border-radius: 50%;
+    /* background-color: black; */
+    }
+    #dashboard{
+        font-family: var(--heading_text);
+        font-weight: 100;
+    }
+.tracker{
+    color:darkslategray;
+    padding: 30px;
+   background-color: whitesmoke;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 3px 3px 6px grey;
+    height: 100%;
+    margin: auto;
+    border-radius: 20px;
+    /* background-color: red; */
+    margin-top: 1vh;
+
+    }
+    
+progress{
+    width: 50%;
+}
+#searchbar{
+    display: flex;
+    background-color: white;
+    align-items: center;
+    margin-top: 5vh;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 4px grey;
+    width: 30vw;
+   
+    
+    border-radius: 10px;
+    /* background-color: aqua; */
+}
+#searchbar input{
+    width: 25vw;
+    font-size: large;
+    height: 3vw;
+    padding: 10px  150px 10px 10px;
+    border: none;
+    /* background-color: antiquewhite; */
+    border-radius: 10px;
+    /* background-color: white; */
+}
+.searchicon img{
+    height: 8vh;
+
+}
+
+.food-bar{
+    display: flex;
+    align-items: center;
+    margin-top: 5vh;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 4px grey;
+    width:30vw;
+    background-color: white;
+    border-radius: 10px;
+
+}
+.tracker .addfood{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+#food 
+{
+    width: 50vw;
+    font-size: large;
+    height: 3vw;
+    padding: 10px  150px 10px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+
+}
+#adder{
+    /* padding: 20px ; */
+    width: 55px;
+    height: 55px;
+    margin-top: 5vh;
+    
+    margin-left: 1vw;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    font-size: 2rem;
+    color: white;
+    background-color: rgb(52, 115, 218);
+    box-shadow: 2px 2px 4px grey;
+}
+#adder:hover{
+    background-color: aliceblue;
+    color:black;
+}
+.tracker .water{
+    margin-top: 5vh;
+}
+.water{
+    width: 50vw;
+    align-items: center;
+    display: flex;
+    
+}
+#wateradder{
+    width: 55px;
+    height: 55px;
+    /* margin-top: 5vh; */
+    
+    /* margin-left: 1vw; */
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    font-size: 2rem;
+    color: white;
+    background-color: rgb(52, 115, 218);
+    box-shadow: 2px 2px 4px grey;
+
+}
+ #content-icon{
+    filter: drop-shadow(2px 2px 4px rgb(70, 69, 69));
+ }
+</style>
+
+
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body  onload="display()">
+    <div  class="navbar2">
+        <ul>
+            <div id="username"><strong><p style="font-size: 1.2rem;">Welcome<p> <p id="displayname">{{ username }}</p> </strong></div>
+            <div id="profilepic"> <img style="height: 7.5vh;" src="{% static 'images\food1.png' %}" alt=""> </div>
+        </ul>
+
+    </div>
+    <div class="tracker">
+        
+        <div class="content">
+            <h1 id="dashboard" style="font-size: 4rem;">Dashboard</h1>
+            <div class="progress-bar-container">
+                <h2>
+                  <label for="html">Calorie Target</label>
+                </h2>
+                <div class="progress-bar html">
+                  <progress id="foodprogress" min="0" max="2000" value="0"></progress> 
+                  <div id="outoffood">0/2000 Calories</div>      
+                </div>
+                
+              </div>
+              <div id="searchbar">
+                    
+                <div class="search"><input type="text" placeholder="Search Food to measure..."></div>
+            <div class="searchicon"><a href=""><img src="{% static 'images\search.png' %}" alt=""></a></div> </div>
+    
+            
+              <div class="addfood">
+                <div class="food-bar"><input id="food" type="text" placeholder="Search Food to add...">
+                </div>
+                <div class="adder"><button   id="adder" onclick="addfood()" value="+">+</button></div>
+              </div>
+              <div class="water">
+                <div class="progress-bar-container">
+                    <h2>
+                      <label for="html">Water Intake Target</label>
+                    </h2>
+                    <div class="progress-bar html">
+                      
+                         <progress  style="width: 35vw;" id="waterprogress" min="0" max="10" value="0"></progress> 
+                      
+                      <div id="outofwater">0/10 Glasses</div>   
+                      <div class="adder"><button id="wateradder" onclick="addwater()" value="0">+</button></div>
+                      
+                    </div>   
+                    
+                    </div>
+                    
+                  </div>
+                  
+        </div>
+        <div class="content-img"><img id="content-icon" style="height: 50vh; margin: 5vh;" src="{% static 'images\contentimg.png' %}" alt=""></div>
+        
+    </div>
+    </div>
+    
+</body>
+<script>
+  var  countWater=0
+   var countFood=0
+    function addwater(){
+        countWater+=1;
+        document.getElementById("waterprogress").style.color='red';
+        document.getElementById("waterprogress").value=countWater;
+        document.getElementById("outofwater").innerHTML=countWater + "/"+10+" Glasses";
+        if(countWater==10){
+            alert("COngrats!!You have completed your daily water goal!")
+        }
+    }
+function addfood(){
+        val=parseInt(document.getElementById('food').value);
+        countFood+=val;
+        
+        document.getElementById('foodprogress').value=countFood;
+        document.getElementById("outoffood").innerHTML=countFood + "/"+2000+" Calories";
+        if(countFood>2000){
+            alert("Exceeded calories intake!")
+        }
+    }
+
+</script>
+<script src="/static/js/script.js"></script>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin: 0%;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+      outline: none;
+    
+    }
+
+    .navbar{
+      
+      /* width: 80%; */
+      background-color: darkolivegreen;
+      display: flex;
+      margin: auto;
+      justify-content: space-between;
+      padding: 10px 50px;
+    }
+    .navbar ul{
+      display: flex;
+      align-items: center;
+      list-style: none;
+      justify-content: flex-end;
+    }
+    .navbar ul li{
+      margin: 0 25px;
+
+    }
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      /* filter: blur(1px);
+       */
+      align-items:center ;
+      background-image: url(https://images.unsplash.com/photo-1494597564530-871f2b93ac55?q=80&w=2013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      background-size: cover;
+      height: 80vh;
+      
+    }
+    .card{
+      padding: 50px;
+      max-width: 50%;
+    
+      display: flex;
+      
+      flex-direction: column;
+      /* align-items: center; */
+      justify-content:center ;
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px grey;
+      background-color: white;
+      
+    }
+    #tagname{
+      font-size: 5rem;
+    }
+
+    #start{
+      margin-top: 20px ;
+      background-color: darkolivegreen;
+      padding: 10px 25px;
+      border-radius: 10px;
+      color:white;
+      cursor: pointer;
+      max-width: 15vw;
+      border: none;
+    }
+    
+      .benefits{
+        width: 80%;
+        display: flex;
+        padding: 50px;
+        flex-direction: column;
+        margin: auto;
+      }
+      .perkcard{
+        display: flex;
+        margin: 10px 0;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid grey;
+        padding: 25px;
+
+      }
+    
+      .picture img{
+        height: 20vh;
+
+      }
+
+
+
+      .footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        color: white;
+        background-color: darkolivegreen;
+      }
+
+
+
+
+      .loginmain{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        height: 93vh;
+        background-size: cover;
+       background-image: url(https://images.unsplash.com/photo-1467453678174-768ec283a940?q=80&w=2044&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      }
+      .loginmain .login{
+        height: 70VH;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+        justify-content: flex-start
+        ;
+        color: white;
+        width: 50%;
+        background-color: rgba(85,107,47,.9);
+        border-radius: 20px;
+        
+      }
+
+      form{
+        display: flex;
+        margin: 20px 0;
+        flex-direction: column;
+      }
+      form input[type=text],form input[type=password]{
+        padding: 10px 25px;
+        background: white;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: none;
+        width: 20vw;
+      }
+      form input[type=submit]{
+        padding: 10px 25px;
+        margin: 10px 0;
+        border-radius: 20px;
+        background-color: white;
+        color: darkolivegreen;
+        cursor: pointer;
+
+        border: none;
+      }
+
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+  {% block title %}
+    
+  {% endblock title %}
+    </title>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">
+      <h2 style="color:lightgreen">Hh</h2>
+    </div>
+    <ul>
+      <li><a href="/">HOME</a></li>
+      <li><a href="/login/">LOGIN</a></li>
+      <li><a href="/register/">REGISTER</a></li>
+      <li><a href="/contact/">CONTACT US</a></li>
+    </ul>
+  </div>
+  
+  {% block main %}
+    
+  {% endblock main %}
+    
+  
+</body>
+</html>

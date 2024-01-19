@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&family=Poppins:wght@300&display=swap');
+        *{
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+            transition: .2s all ease;
+        }
+   
+        .container{
+            text-align: center;
+            height: 100vh;
+          
+            align-items: center;
+            width: 100vw;
+            background-color: rgb(71, 127, 37);
+        }
+        .container form{
+            width: 75vw;
+            box-shadow: 5px 5px 8px rgba(50,50,50,1);
+            margin: auto;
+            height: 100vh;
+            background-color: aliceblue;
+            border-radius: 50px;
+
+        }
+        .container form input{
+            width: 25vw ;
+            outline: none;
+            margin-bottom: 2vh;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid teal;
+            background-color: transparent;
+            color: black;
+            font-weight: 700;
+           
+        }
+        label{
+            font-weight: bold;
+        }
+        #submit{
+            
+            background-color: darkslategray;
+            color:white;
+        }
+        #submit:hover{
+            background-color: white;
+            color:darkslategray;
+            cursor: pointer;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started</title>
+</head>
+<body>
+    <div class="container">
+        <div class="info_hub">
+            <form method="POST" style="display: flex; flex-direction: column; align-items: center;" action="/profile/">
+                {% csrf_token %}
+                <h1 style="color:darkslategray; margin: 5vh 0px;">Start your journey here and now!!!</h1>
+                <label for="fullname">Full Name:</label>
+                <input id="fullname" type="text" placeholder="ENTER YOUR FULL NAME" required>
+                <label for="weight">Current Weight:</label>
+                <input id="weight" type="number" placeholder="ENTER YOUR CURRENT WEIGHT" required>
+                <label for="height">Height(in centi-meters):</label>
+                <input id="height" type="number" placeholder="ENTER YOUR HEIGHT" required>
+                <label for="age">Age(in years):</label>
+                <input id="age" type="number" placeholder="ENTER YOUR AGE" required>
+                <label for="goal">Current Weight Goal:</label>
+                <input id="goal" type="number" placeholder="ENTER YOUR GOAL" required>
+                <label for="time">Time limit for Current Weight Goal:</label>
+                <input id="time" type="number" placeholder="TIME PERIOD" required>
+                <input id="submit" type="submit" value="Finish">
+                <!-- <div class="image">
+                    <img src="panda.png" alt="">
+                </div> -->
+            </form>
+        </div>
+        
+            
+        
+
+    </div>
+</body>
+<script src="/static/js/script.js"></script>
+
+</html>

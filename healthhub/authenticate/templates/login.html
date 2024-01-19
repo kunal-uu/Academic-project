@@ -1,0 +1,42 @@
+{% extends 'C:\Users\iamku\OneDrive\Desktop\talentserve project\Academic-project\healthhub\homepage\templates\base.html' %}
+{% load static %}
+{% block title %}
+    Login to Healthhub
+{% endblock title %}
+
+{% if messages %}
+<ul class="messages">
+  {% for messages in messages %}
+  <li {% if messages.tags %} class="{{messages.tags}}"{%endif%}>
+    {% endfor %}
+  </li>
+  </ul>
+  {% endif %}
+
+
+{% block main %}
+  <div class="loginmain">
+    <div class="login">
+      <h2>Welcome back User</h2>
+        <form action="login/" method="POST">
+          {%csrf_token%}
+
+<label for="username">Username</label>
+<input type="text" placeholder="Username or Email" id="username" name="username">
+
+<label for="password">Password</label>
+<input type="password" placeholder="Password" id="password" name="password">
+
+<div class="remember"><input type="checkbox" name="rememberme" id="rememberme">
+    <label for="rememberme">Remember Me</label></div>
+    <input type="submit" value="Login">
+
+
+        </form>
+        <p>Don't have an account?</p> <p>Click</p> <a style="color:lightblue" href="/register/">Register</a>
+    </div>
+
+  </div>  
+{% endblock main %}
+    
+    
